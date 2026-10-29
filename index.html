@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amaral Rifa</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101010;color:white;font-family:Arial,sans-serif}
+header{background:#1a1a1a;border-bottom:2px solid #f02730;padding:20px;text-align:center}
+header h1{margin:0;color:#f02730;font-size:28px}
+header p{margin:8px 0 0;color:#ddd}
+main{max-width:550px;margin:auto;padding:16px}
+.card{background:#1b1b1b;border:1px solid #333;border-radius:12px;padding:16px;margin-bottom:16px}
+h2{margin-top:0}
+.valor{font-size:27px;font-weight:bold;color:#f02730}
+.grade{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.numero{padding:12px 0;border:1px solid #555;border-radius:7px;background:#292929;color:white;font-weight:bold}
+.numero.selecionado{background:#f02730;border-color:#f02730}
+.numero.vendido{background:#555;color:#aaa;opacity:.6}
+button{cursor:pointer}
+.botao{display:block;width:100%;padding:14px;background:#f02730;color:white;border:0;border-radius:8px;font-size:16px;font-weight:bold;margin-top:12px}
+input{width:100%;padding:13px;background:#111;color:white;border:1px solid #444;border-radius:7px;margin:7px 0}
+.info{color:#bbb;font-size:14px;line-height:1.5}
+footer{text-align:center;color:#888;padding:20px;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<h1>AMARAL RIFA</h1>
+<p>Sua chance de ganhar!</p>
+</header>
+
+<main>
+<div class="card">
+<h2>🏆 Nossa rifa</h2>
+<p>Participe e concorra ao prêmio!</p>
+<div class="valor">R$ 1,00 <span style="font-size:14px;color:white">por número</span></div>
+<p class="info">Serão disponibilizados 50 números. O sorteio será realizado após todos os números serem vendidos e conforme as regras divulgadas pelo organizador.</p>
+</div>
+
+<div class="card">
+<h2>🎟️ Escolha seus números</h2>
+<p class="info">Toque nos números que deseja selecionar.</p>
+<div class="grade" id="grade"></div>
+<p id="resumo">Nenhum número selecionado.</p>
+</div>
+
+<div class="card">
+<h2>📝 Seus dados</h2>
+<input id="nome" type="text" placeholder="Seu nome completo">
+<input id="contato" type="tel" placeholder="Seu WhatsApp">
+<p class="info">Confira os números selecionados antes de continuar.</p>
+<button class="botao" onclick="comprar()">CONTINUAR PARA PAGAMENTO
