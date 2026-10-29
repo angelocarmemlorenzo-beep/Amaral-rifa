@@ -18,6 +18,11 @@
 const chosen=new Set();const grid=document.querySelector('#numbers');const selected=document.querySelector('#selected');const quantity=document.querySelector('#quantity');const total=document.querySelector('#total');const pay=document.querySelector('#pay');
 for(let n=1;n<=50;n++){const b=document.createElement('button');b.type='button';b.className='num';b.textContent=String(n).padStart(2,'0');b.setAttribute('aria-label','Número '+n);b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>{if(chosen.has(n))chosen.delete(n);else chosen.add(n);b.setAttribute('aria-pressed',String(chosen.has(n)));update()});grid.append(b)}
 function update(){const nums=[...chosen].sort((a,b)=>a-b);selected.textContent=nums.length?nums.map(n=>String(n).padStart(2,'0')).join(', '):'Nenhum';quantity.textContent=nums.length;total.textContent=(nums.length).toLocaleString('pt-BR',{style:'currency',currency:'BRL'});pay.disabled=!nums.length;pay.textContent=nums.length?'Ver informações de pagamento':'Selecione pelo menos 1 número'}
-pay.addEventListener('click',()=>{alert('Esta é uma demonstração. Para aceitar pagamentos, é necessário integrar um checkout que cobre exatamente R$ '+chosen.size+',00 e reserve os números após a confirmação. Não use o link fixo para cobrar valores variáveis.')});
+pay.addEventListener('click',()=>{
+  const nums=[...chosen].sort((a,b)=>a-b)
+    .map(n=>String(n).padStart(2,'0'));
+  const msg=`Olá! Gostaria de informações sobre os números: ${nums.join(', ')}. Quantidade: ${nums.length}.`;
+  window.open('https://wa.me/5518997840210?text='+encodeURIComponent(msg),'_blank');
+});
 </script>
 </body></html>
